@@ -1,7 +1,7 @@
 <aside id="aAside">
     <div>关于我们</div>
     <div></div>
-    <div>滴答滴答滴答滴答滴答滴答</div>
+    <div>滴答滴答滴答滴答滴答滴</div>
 </aside>
 <article id="aArticle">
     <figure>
@@ -43,3 +43,11 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
     </div>-->
 </article>
+<script>
+//    $('#cover').hide();
+    $('#content').scroll(function () {
+        var scrolld=$('#content').scrollTop()+200;
+//        console.log(scrolld);
+        $('#aAside').css('top',scrolld);
+    })
+</script>
