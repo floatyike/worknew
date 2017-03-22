@@ -9,38 +9,38 @@
     </ul>
     <ul id="details">
         <li class="showDtl">
-            <h3>与阿里合作项目</h3>
-            <p></p>
+            <h3>与阿里合作项目1</h3>
+            <p class="lined"></p>
             <img src="images/003.png"  alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
         </li>
         <li class="showDtl">
-            <h3>与腾讯合作项目</h3>
-            <p></p>
+            <h3>与腾讯合作项目2</h3>
+            <p class="lined"></p>
             <img src="images/003.png"  alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
         </li>
         <li class="showDtl">
-            <h3>与百度合作项目</h3>
-            <p></p>
+            <h3>与百度合作项目3</h3>
+            <p class="lined"></p>
             <img src="images/003.png"  alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
         </li>
         <li class="showDtl">
-            <h3>与小米合作项目</h3>
-            <p></p>
+            <h3>与小米合作项目4</h3>
+            <p class="lined"></p>
             <img src="images/003.png"  alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
         </li>
         <li class="showDtl">
-            <h3>与优酷合作项目</h3>
-            <p></p>
+            <h3>与优酷合作项目5</h3>
+            <p class="lined"></p>
             <img src="images/003.png"  alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
         </li>
         <li class="showDtl">
             <h3>与支付宝合作项目</h3>
-            <p></p>
+            <p class="lined"></p>
             <img src="images/003.png"  alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
         </li>
@@ -76,16 +76,15 @@
         if(event.wheelDelta < 0 || event.detail > 0){
             if(index<5){
                 ++index;
-                console.log(index);
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
                 $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).show().siblings().hide():'';
+                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
             }else{
                 index=-1;
                 index++;
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
                 $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).show().siblings().hide():'';
+                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
 
             }
 
@@ -93,17 +92,15 @@
         }else{
             if(index>-1){
                 --index;
-                console.log(index);
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
                 $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).show().siblings().hide():'';
+                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
             }else{
                 index=5;
                 --index;
-                console.log(index);
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
                 $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).show().siblings().hide():'';
+                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
 
             }
 
@@ -133,64 +130,72 @@
         $('#smipleItr').fadeOut();
         $('#title0').fadeOut();
         //三角形
-        $('#triangle').css('left','initial');
-        $('#triangle').delay(1000).animate({right:'0'},2000,'swing');
+//        $('#triangle').css('left','initial');
+//        $('#triangle').delay(1000).animate({right:'0'},2000,'swing');
+//        $('#triangle').delay(1000).animate({marginLeft:'868px'},2000,'swing');
+        $('#triangle').delay(500).animate({marginLeft:'868px'},1000,'swing');
 //        $('#triangle').animate({left:'initial',right:'0'},1000,'swing');
         details=true;
         $('#details').fadeIn();
 
-        $('.show0:eq(0)').delay(1200).css('left','initial');
-        $('.show0:eq(0)').delay(1200).animate({right:'100px'},1000,'swing');
+//        $('.show0:eq(0)').delay(1000).css('left','initial');
+        $('.show0:eq(0)').delay(1000).animate({marginLeft:'490px'},500,'swing');
 
-        $('.show0:eq(1)').delay(800).css('left','initial');
-        $('.show0:eq(1)').delay(800).animate({right:'100px'},1000,'swing');
+//        $('.show0:eq(1)').delay(800).css('left','initial');
+//        $('.show0:eq(1)').css('left','initial');
+        $('.show0:eq(1)').delay(800).animate({marginLeft:'490px'},500,'swing');
 
-        $('.show0:eq(2)').delay(500).css('left','initial');
-        $('.show0:eq(2)').delay(500).animate({right:'100px'},1000,'swing');
+//        $('.show0:eq(2)').delay(500).css('left','initial');
+//        $('.show0:eq(2)').css('left','initial');
+//        $('.show0:eq(2)').delay(500).animate({right:'100px'},1000,'swing');
+        $('.show0:eq(2)').animate({marginLeft:'450px'},1000,'swing');
 
-        $('.show0:eq(3)').delay(800).css('left','initial');
-        $('.show0:eq(3)').delay(800).animate({right:'100px'},1000,'swing');
+//        $('.show0:eq(3)').delay(800).css('left','initial');
+//        $('.show0:eq(3)').css('left','initial');
+        $('.show0:eq(3)').delay(800).animate({marginLeft:'490px'},500,'swing');
 
-        $('.show0:eq(4)').delay(1000).css('left','initial');
-        $('.show0:eq(4)').delay(1000).animate({right:'100px'},1000,'swing');
+//        $('.show0:eq(4)').delay(1000).css('left','initial');
+//        $('.show0:eq(4)').css('left','initial');
+        $('.show0:eq(4)').delay(1000).animate({marginLeft:'440px'},500,'swing');
 
 
 
 
-        details?$('.showDtl:eq('+index+')').stop().delay(5000).fadeIn().siblings().hide():'';
+        details?$('.showDtl:eq('+index+')').stop().delay(2000).fadeIn(300).siblings().stop().hide():'';
 
     });
     $('#asideS').on('mouseover','li.show0',function () {
         var i=$(this).index();
         $(this).addClass('actives').siblings().removeClass('actives');
         $('.show1').eq(i).stop().fadeIn().siblings().stop().hide();
-        details?$('.showDtl').eq(i).stop().show().siblings().stop().hide():'';
+        details?$('.showDtl').eq(i).stop().fadeIn(300).siblings().stop().hide():'';
     });
     $('#container-navs li:eq(1)').click(function () {
         details=false;
         $('.showDtl:eq('+index+')').stop().hide();
         $('#details').fadeOut();
-        $('#triangle').css('right','initial');
+//        $('#triangle').css('right','initial');
 //        $('#triangle').delay(1000).animate({right:'initial',left:'0'},1000,'swing');
-        $('#triangle').delay(1000).animate({left:'0'},1000,'swing');
+//        $('#triangle').delay(1000).animate({left:'0'},1000,'swing');
+        $('#triangle').delay(500).animate({marginLeft:'0'},1000,'swing');
 //        $('#container-navs li:eq(2)').remove();
 
-        $('.show0:eq(0)').delay(800).css('right','initial');
-        $('.show0:eq(0)').delay(800).animate({left:'328px'},1000,'swing');
+//        $('.show0:eq(0)').delay(500).css('right','initial');
+        $('.show0:eq(0)').delay(500).animate({marginLeft:'0px'},1000,'swing');
 
-        $('.show0:eq(1)').delay(600).css('right','initial');
-        $('.show0:eq(1)').delay(600).animate({left:'386px'},1000,'swing');
+//        $('.show0:eq(1)').delay(300).css('right','initial');
+        $('.show0:eq(1)').delay(300).animate({marginLeft:'0px'},1000,'swing');
 
-        $('.show0:eq(2)').delay(500).css('right','initial');
-        $('.show0:eq(2)').delay(500).animate({left:'398px'},1000,'swing');
+//        $('.show0:eq(2)').delay(200).css('right','initial');
+        $('.show0:eq(2)').delay(200).animate({marginLeft:'0px'},1000,'swing');
 
-        $('.show0:eq(3)').delay(600).css('right','initial');
-        $('.show0:eq(3)').delay(600).animate({left:'376px'},1000,'swing');
+//        $('.show0:eq(3)').delay(300).css('right','initial');
+        $('.show0:eq(3)').delay(300).animate({marginLeft:'0px'},1000,'swing');
 
-        $('.show0:eq(4)').delay(800).css('right','initial');
-        $('.show0:eq(4)').delay(800).animate({left:'324px'},1000,'swing');
+//        $('.show0:eq(4)').delay(500).css('right','initial');
+        $('.show0:eq(4)').delay(500).animate({marginLeft:'0px'},1000,'swing');
 
-        $('#title0').delay(3000).fadeIn();
+        $('#title0').delay(1500).fadeIn();
         $('#smipleItr').delay(2000).fadeIn();
     });
     //方案二

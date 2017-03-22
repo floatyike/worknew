@@ -25,7 +25,6 @@ $(function () {
         var title=$(this).text();
 
         $('#container-navs').append('<li><small>>> </small><span>'+title+'</span></li>');
-        //内容切换
         $('#mainContent').load('html/'+pages[title]+'.html');
         $('#container-nav').fadeIn();
         $('#content').fadeIn();
