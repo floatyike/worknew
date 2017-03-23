@@ -470,6 +470,16 @@ footer .fcover{
     /*opacity: .8;*/
     /*z-index:1003;*/
 }
+/*返回*/
+#back{
+    font-size:22px;
+    /*float: right;*/
+    color:#69665d;
+    position: absolute;
+    right: 0;
+    top:0;
+    display: none;
+}
 /*右侧标题*/
 #title0{
     float:right;
@@ -493,8 +503,12 @@ footer .fcover{
     width:50%;
     margin-left: 58px;
     text-align: start;
+    position:relative;
 }
 #details .showDtl{
+    position:absolute;
+    top:0;
+    left:0;
     display: none;
 }
 .showDtl h3{

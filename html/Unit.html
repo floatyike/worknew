@@ -57,16 +57,12 @@
         <div></div>
         <div>水中的鱼儿很漂亮</div>
     </div>
+    <div id="back"> &lt;&lt; 返回 </div>
 </aside>
 <script>
 
     var details=false;
-    /*$('#asideS').on('mouseover','li.show0',function () {
-        var i=$(this).index();
-        $(this).addClass('actives').siblings().removeClass('actives');
-        $('.show1').eq(i).stop().fadeIn().siblings().stop().hide();
-        details?$('.showDtl').eq(i).show().siblings().hide():'';
-    });*/
+
     var box1 = document.getElementById("asideS");
 
     var index=$('.actives').index();
@@ -77,14 +73,14 @@
             if(index<5){
                 ++index;
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
-                $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
+                $('.show1').eq(index).stop().show().siblings().stop().hide();
+                details?$('.showDtl').eq(index).stop().fadeIn(2000).siblings().stop().fadeOut(2000):'';
             }else{
                 index=-1;
                 index++;
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
-                $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
+                $('.show1').eq(index).stop().show().siblings().stop().hide();
+                details?$('.showDtl').eq(index).stop().fadeIn(2000).siblings().stop().fadeOut(2000):'';
 
             }
 
@@ -93,14 +89,14 @@
             if(index>-1){
                 --index;
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
-                $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
+                $('.show1').eq(index).stop().show().siblings().stop().hide();
+                details?$('.showDtl').eq(index).stop().fadeIn(2000).siblings().stop().fadeOut(2000):'';
             }else{
                 index=5;
                 --index;
                 $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
-                $('.show1').eq(index).show().siblings().hide();
-                details?$('.showDtl').eq(index).fadeIn(300).siblings().stop().hide():'';
+                $('.show1').eq(index).stop().show().siblings().stop().hide();
+                details?$('.showDtl').eq(index).fadeIn(2000).siblings().stop().fadeOut(2000):'';
 
             }
 
@@ -124,134 +120,84 @@
     }
 
     $('#asideS').on('click','li.show0',function () {
-//        $('#container-navs li:eq(2)').remove();
-//        $('#container-navs').append('<li><small>>> </small><span>'+$(this).text()+'</span></li>');
+        /*$('#container-navs li:eq(2)').remove();
+        $('#container-navs').append('<li><small>>> </small><span>'+$(this).text()+'</span></li>');*/
+        $('#back').fadeIn(1000);
         //简介消失
         $('#smipleItr').fadeOut();
         $('#title0').fadeOut();
+
         //三角形
-//        $('#triangle').css('left','initial');
-//        $('#triangle').delay(1000).animate({right:'0'},2000,'swing');
-//        $('#triangle').delay(1000).animate({marginLeft:'868px'},2000,'swing');
         $('#triangle').delay(500).animate({marginLeft:'868px'},1000,'swing');
-//        $('#triangle').animate({left:'initial',right:'0'},1000,'swing');
         details=true;
         $('#details').fadeIn();
 
-//        $('.show0:eq(0)').delay(1000).css('left','initial');
         $('.show0:eq(0)').delay(1000).animate({marginLeft:'490px'},500,'swing');
 
-//        $('.show0:eq(1)').delay(800).css('left','initial');
-//        $('.show0:eq(1)').css('left','initial');
         $('.show0:eq(1)').delay(800).animate({marginLeft:'490px'},500,'swing');
 
-//        $('.show0:eq(2)').delay(500).css('left','initial');
-//        $('.show0:eq(2)').css('left','initial');
-//        $('.show0:eq(2)').delay(500).animate({right:'100px'},1000,'swing');
         $('.show0:eq(2)').animate({marginLeft:'450px'},1000,'swing');
 
-//        $('.show0:eq(3)').delay(800).css('left','initial');
-//        $('.show0:eq(3)').css('left','initial');
         $('.show0:eq(3)').delay(800).animate({marginLeft:'490px'},500,'swing');
 
-//        $('.show0:eq(4)').delay(1000).css('left','initial');
-//        $('.show0:eq(4)').css('left','initial');
         $('.show0:eq(4)').delay(1000).animate({marginLeft:'440px'},500,'swing');
+        $('#content').scroll(function () {
+            $('#triangle').css('top',$('#content').scrollTop()+60);
+            $('.show0:eq(0)').css('top',$('#content').scrollTop()+200);
+            $('.show0:eq(1)').css('top',$('#content').scrollTop()+330);
+            $('.show0:eq(2)').css('top',$('#content').scrollTop()+440);
+            $('.show0:eq(3)').css('top',$('#content').scrollTop()+560);
+            $('.show0:eq(4)').css('top',$('#content').scrollTop()+660);
+        });
 
-
-
-
-        details?$('.showDtl:eq('+index+')').stop().delay(2000).fadeIn(300).siblings().stop().hide():'';
+        details?$('.showDtl:eq('+index+')').stop().delay(2000).fadeIn(2000).siblings().stop().hide():'';
 
     });
+
     $('#asideS').on('mouseover','li.show0',function () {
         var i=$(this).index();
         $(this).addClass('actives').siblings().removeClass('actives');
         $('.show1').eq(i).stop().fadeIn().siblings().stop().hide();
-        details?$('.showDtl').eq(i).stop().fadeIn(300).siblings().stop().hide():'';
+        details?$('.showDtl').eq(i).stop().fadeIn(2000).siblings().stop().fadeOut(2000):'';
     });
-    $('#container-navs li:eq(1)').click(function () {
+    function back() {
         details=false;
+        $('#content').unbind('scroll');
+
+
+        $('#triangle').css('top','60px');
+        $('#smipleItr').css('top','436px');
+        $('#title0').css('marginTop','414px');
+        $('.show0:eq(0)').css('top','200px');
+        $('.show0:eq(1)').css('top','330px');
+        $('.show0:eq(2)').css('top','440px');
+        $('.show0:eq(3)').css('top','560px');
+        $('.show0:eq(4)').css('top','660px');
+
+        $('#back').fadeOut(1000);
         $('.showDtl:eq('+index+')').stop().hide();
         $('#details').fadeOut();
-//        $('#triangle').css('right','initial');
-//        $('#triangle').delay(1000).animate({right:'initial',left:'0'},1000,'swing');
-//        $('#triangle').delay(1000).animate({left:'0'},1000,'swing');
         $('#triangle').delay(500).animate({marginLeft:'0'},1000,'swing');
 //        $('#container-navs li:eq(2)').remove();
 
-//        $('.show0:eq(0)').delay(500).css('right','initial');
         $('.show0:eq(0)').delay(500).animate({marginLeft:'0px'},1000,'swing');
 
-//        $('.show0:eq(1)').delay(300).css('right','initial');
         $('.show0:eq(1)').delay(300).animate({marginLeft:'0px'},1000,'swing');
 
-//        $('.show0:eq(2)').delay(200).css('right','initial');
         $('.show0:eq(2)').delay(200).animate({marginLeft:'0px'},1000,'swing');
 
-//        $('.show0:eq(3)').delay(300).css('right','initial');
         $('.show0:eq(3)').delay(300).animate({marginLeft:'0px'},1000,'swing');
 
-//        $('.show0:eq(4)').delay(500).css('right','initial');
         $('.show0:eq(4)').delay(500).animate({marginLeft:'0px'},1000,'swing');
 
         $('#title0').delay(1500).fadeIn();
         $('#smipleItr').delay(2000).fadeIn();
+    }
+    $('#container-navs li:eq(1)').click(function () {
+        back();
     });
-    //方案二
-    /*$('#asideS').on('click','li.show0',function () {
-
-        var i=$(this).index();
-        if(i!=3){
-            $('.show0:eq(6)').insertBefore($('.show0:eq(0)'));
-
-            //简介
-            smipleItr?$('.show1:eq(6)').insertBefore($('.show1:eq(0)')):'';
-            //详细内容
-            details?$('.showDtl:eq(6)').insertBefore($('.showDtl:eq(0)')):'';
-
-            $('.show0:eq(3)').stop().animate({opacity:'1',fontSize:'24px'},100);
-            $('.show0:eq(0)').stop().animate({opacity:'.35',fontSize:'16px'},1000);
-            $('.show0:eq(1)').stop().animate({opacity:'.6',fontSize:'16px'},500);
-            $('.show0:eq(2)').stop().animate({opacity:'.8',fontSize:'16px'},500);
-            $('.show0:eq(4)').stop().animate({opacity:'1',fontSize:'16px'},100);
-            $('.show0:eq(5)').stop().animate({opacity:'1',fontSize:'16px'},500);
-            $('.show0:eq(6)').stop().animate({opacity:'1',fontSize:'16px'},1000);
-            //简介
-            smipleItr?$('.show1:eq(3)').stop().fadeIn(300).siblings().stop().fadeOut(100):'';
-            //详细
-//             details?$('.showDtl:eq(3)').stop().fadeIn(300).siblings().stop().fadeOut(100):'';
-            details?$('.showDtl:eq(3)').stop().fadeIn(500).siblings().stop().hide():'';
-//             console.log($('.show0:eq(3)').text())
-        }else{
-            smipleItr=false;
-            details=true;
-            //简介消失
-            $('#smipleItr').fadeOut();
-            $('#title0').fadeOut();
-            //三角形
-            $('#triangle').animate({right:'0'},1000,'swing');
-//             $('#triangle').animate({right:'0'},1000,'linear');
-
-            $('.show0:eq(0)').delay(500).css('left','initial');
-            $('.show0:eq(0)').delay(500).animate({right:'100px'},1000,'swing');
-
-            $('.show0:eq(1)').delay(1000).css('left','initial');
-            $('.show0:eq(1)').delay(1000).animate({right:'100px'},1000,'swing');
-
-            $('.show0:eq(2)').delay(1500).css('left','initial');
-            $('.show0:eq(2)').delay(1500).animate({right:'100px'},1000,'swing');
-
-            $('.show0:eq(4)').delay(1500).css('left','initial');
-            $('.show0:eq(4)').delay(1500).animate({right:'100px'},1000,'swing');
-
-
-            $('.show0:eq(3)').delay(2000).delay(500).css('left','initial');
-            $('.show0:eq(3)').delay(2000).animate({right:'100px'},1000,'swing');
-
-            $('.showDtl:eq(3)').delay(5000).fadeIn();
-        }
-
-    });*/
+    $('#back').click(function () {
+        back()
+    });
 
 </script>

@@ -43,11 +43,9 @@
         $('#aAside').css('top',scrolld);
     })
     $('.showtS').on('mouseenter',function () {
-//        $('.tItr').eq(6).hide();
-//        $(this).removeClass('showsC');//toggleClass() class 不用加点 removeClass等一样
 
         var i=$(this).index();
-//fadeIn()与fadeOut() 前加fadeIn()防止切换时动画不正常
+//fadeIn()与fadeOut() 前加stop()防止切换时动画不正常
         $('.tItr').eq(i).stop().fadeIn(300).siblings().stop().fadeOut(300);
 //        $('.tItr').eq(i).fadeIn().siblings().fadeOut();
     });
